@@ -51,9 +51,13 @@
       responsive: {
         0: {
           items: 1,
+          margin: 0,
+          nav: true,
         },
         1000: {
           items: 3,
+          margin: 10,
+          nav: true,
         }
       }
     });
