@@ -6,17 +6,17 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-
   - name: "events"
     label: "What's On Events"
     folder: "content/events"
-    extension: "json"
-    format: "json"
+
     create: true
     slug: "{{slug}}"
 
-    fields:
+    extension: "json"
+    format: "json"
 
+    fields:
       - label: "Title"
         name: "title"
         widget: "string"
@@ -25,7 +25,7 @@ collections:
         name: "date"
         widget: "datetime"
         time_format: false
-        forat: "D MMMM YYYY"
+        format: "D MMMM YYYY"
 
       - label: "Location"
         name: "location"
