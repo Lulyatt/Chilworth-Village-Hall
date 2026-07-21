@@ -33,36 +33,7 @@
       smartSpeed: 1000,
     })
 
-    $('.owl-courses').owlCarousel({
-      animateOut: 'fadeOut',
-      loop: true,
-      autoplayHoverPause: true,
-      autoplay: true,
-      autoHeight: true,
-      autoWidth: false,
-      smartSpeed: 1000,
-      dots: false,
-      nav:true,
-      navText: [
-          '<i class="fa fa-angle-left"></i>',
-          '<i class="fa fa-angle-right"></i>'
-      ],
-      responsiveClass: true,
-      responsive: {
-        0: {
-          items: 1,
-          margin: 0,
-          nav: true,
-        },
-        1000: {
-          items: 3,
-          margin: 10,
-          nav: true,
-        }
-      }
-    });
-
-
+    
     // SMOOTHSCROLL
     $(function() {
       $('.custom-navbar a, #home a').on('click', function(event) {
@@ -111,3 +82,87 @@ $(document).ready(function () {
 
 });
 
+async function loadEvents() {
+
+    const response = await fetch("/events.json");
+    const events = await response.json();
+
+    const container = document.getElementById("events-container");
+
+    events.forEach(event => {
+
+        const eventHTML = `
+            <div class="item">
+                <div class="courses-thumb text-center p-3">
+
+                    <div class="tst-image mb-3">
+                        <img src="${event.image}" 
+                             class="img-responsive rounded"
+                             alt="${event.title}">
+                    </div>
+
+                    <h3>${event.title}</h3>
+
+                    <p>${event.location} • ${event.date}</p>
+
+                    <p>
+                        ${event.description}
+                        ${event.link ? 
+                        `<br>
+                        <a href="${event.link}" target="_blank">
+                            Find Out More
+                        </a>` 
+                        : ""}
+                    </p>
+
+                </div>
+            </div>
+        `;
+
+        container.innerHTML += eventHTML;
+
+        $('.owl-courses').owlCarousel({
+      animateOut: 'fadeOut',
+      loop: true,
+      autoplayHoverPause: true,
+      autoplay: true,
+      autoHeight: true,
+      autoWidth: false,
+      smartSpeed: 1000,
+      dots: false,
+      nav:true,
+      navText: [
+          '<i class="fa fa-angle-left"></i>',
+          '<i class="fa fa-angle-right"></i>'
+      ],
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 1,
+          margin: 0,
+          nav: true,
+        },
+        1000: {
+          items: 3,
+          margin: 10,
+          nav: true,
+        }
+      }
+    });
+
+
+    });
+
+
+    $(".owl-carousel").owlCarousel({
+        items: 3,
+        loop: true,
+        margin: 20,
+        nav: true,
+        dots: true
+    });
+
+}
+
+
+loadEvents();
