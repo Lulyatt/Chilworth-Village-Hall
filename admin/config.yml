@@ -6,16 +6,36 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+
   - name: "events"
-    label: "Events"
+    label: "What's On Events"
     folder: "content/events"
     create: true
     slug: "{{slug}}"
+
     fields:
+
       - label: "Title"
         name: "title"
+        widget: "string"
+
+      - label: "Date"
+        name: "date"
+        widget: "string"
+
+      - label: "Location"
+        name: "location"
         widget: "string"
 
       - label: "Description"
         name: "description"
         widget: "text"
+
+      - label: "Image"
+        name: "image"
+        widget: "image"
+
+      - label: "Website Link"
+        name: "link"
+        widget: "string"
+        required: false
