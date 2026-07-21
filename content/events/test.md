@@ -1,8 +1,8 @@
 ---
-title: Test Event
-date: 1st August
+title: Test
+date: January
 location: Chilworth
-description: Testing
+description: Test
 image: /images/uploads/001.png
 link: www.google.co.uk
 ---
