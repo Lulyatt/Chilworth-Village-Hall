@@ -1,3 +1,7 @@
+
+# <-- Events-->
+
+
 backend:
   name: git-gateway
   branch: main
@@ -41,5 +45,44 @@ collections:
 
       - label: "Website Link"
         name: "link"
+        widget: "string"
+        required: false
+
+# <-- Regular Users -->
+
+  - name: "users"
+    label: "Regular Users"
+    folder: "content/users"
+
+    create: true
+    slug: "{{slug}}"
+
+    extension: "json"
+    format: "json"
+
+    fields:
+      - label: "Name"
+        name: "name"
+        widget: "string"
+
+      - label: "Image"
+        name: "image"
+        widget: "image"
+
+      - label: "Short Information"
+        name: "summary"
+        widget: "text"
+
+      - label: "Modal Description"
+        name: "description"
+        widget: "markdown"
+
+      - label: "Contact"
+        name: "contact"
+        widget: "string"
+        required: false
+
+      - label: "Website"
+        name: "website"
         widget: "string"
         required: false
