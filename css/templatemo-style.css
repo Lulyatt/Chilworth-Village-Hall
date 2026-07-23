@@ -1130,10 +1130,11 @@ https://templatemo.com/tm-516-known
 /* MODAL BOX */
 .custom-modal-content {
   background: #fff;
-  padding: 20px;
+  padding: 30px;
   border-radius: 12px;
   max-width: 800px;
-  max-height: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
   width: 90%;
   text-align: center;
   position: relative;
@@ -1149,6 +1150,10 @@ https://templatemo.com/tm-516-known
     height: auto;
     display: block;
     margin: 0 auto;
+}
+
+#modalText {
+    line-height: 1.4;
 }
 
 
@@ -1179,6 +1184,60 @@ body.modal-open {
 
 .user-modal-trigger:hover {
   transform: scale(1.02);
+}
+
+.feature-modal-trigger {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.feature-modal-trigger:hover {
+  transform: scale(1.02);
+}
+
+.feature-modal-content {
+  max-width: 700px;
+}
+
+.feature-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.feature-thumbnail {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.65;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-thumbnail:hover,
+.feature-thumbnail.active {
+  opacity: 1;
+  border-color: #3f51b5;
+}
+
+#featureModalImg {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  max-height: 50vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 15px;
+  border-radius: 8px;
+}
+
+#featureModalText {
+  line-height: 1.5;
+  text-align: left;
 }
 
 .owl-courses .item {

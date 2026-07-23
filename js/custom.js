@@ -52,7 +52,17 @@ $(document).ready(function () {
  $(document).on("click", ".user-modal-trigger", function () {
     $("#modalImg").attr("src", $(this).data("img"));
     $("#modalTitle").text($(this).data("name"));
-    $("#modalText").html($(this).data("info"));
+    let modalContent = $(this).data("info");
+
+if ($(this).data("contact")) {
+    modalContent += `<br><br>✉️ <a href="mailto:${$(this).data("contact")}">${$(this).data("contact")}</a>`;
+}
+
+if ($(this).data("website")) {
+    modalContent += `<br><br>🌐 <a href="${$(this).data("website")}" target="_blank">Visit Website</a>`;
+}
+
+$("#modalText").html(modalContent);
 
     $("#userModal").addClass("active");
     $("body").addClass("modal-open");
@@ -76,7 +86,57 @@ $(document).ready(function () {
   $(document).keydown(function (e) {
     if (e.key === "Escape") {
       $("#userModal").removeClass("active");
+      $("#featureModal").removeClass("active");
       $("body").removeClass("modal-open");
+    }
+  });
+
+  function closeFeatureModal() {
+    $("#featureModal").removeClass("active");
+    $("body").removeClass("modal-open");
+  }
+
+  function setFeatureMainImage(src, index) {
+    $("#featureModalImg").attr("src", src);
+    $("#featureThumbnails .feature-thumbnail").removeClass("active");
+    $("#featureThumbnails .feature-thumbnail").eq(index).addClass("active");
+  }
+
+  $(document).on("click", ".feature-modal-trigger", function () {
+    const images = JSON.parse($(this).attr("data-images"));
+    const title = $(this).data("title");
+    const description = $(this).data("description");
+
+    $("#featureModalTitle").text(title);
+    $("#featureModalText").text(description);
+
+    const $thumbnails = $("#featureThumbnails").empty();
+    images.forEach(function (src, index) {
+      $("<img>", {
+        src: src,
+        alt: title + " photo " + (index + 1),
+        class: "feature-thumbnail" + (index === 0 ? " active" : ""),
+        "data-index": index
+      }).appendTo($thumbnails);
+    });
+
+    setFeatureMainImage(images[0], 0);
+
+    $("#featureModal").addClass("active");
+    $("body").addClass("modal-open");
+  });
+
+  $(document).on("click", ".feature-thumbnail", function (e) {
+    e.stopPropagation();
+    const index = $(this).data("index");
+    setFeatureMainImage($(this).attr("src"), index);
+  });
+
+  $(".feature-close").click(closeFeatureModal);
+
+  $("#featureModal").click(function (e) {
+    if (e.target === this) {
+      closeFeatureModal();
     }
   });
 
@@ -121,48 +181,89 @@ async function loadEvents() {
 
         container.innerHTML += eventHTML;
 
-        $('.owl-courses').owlCarousel({
-      animateOut: 'fadeOut',
-      loop: true,
-      autoplayHoverPause: true,
-      autoplay: true,
-      autoHeight: true,
-      autoWidth: false,
-      smartSpeed: 1000,
-      dots: false,
-      nav:true,
-      navText: [
-          '<i class="fa fa-angle-left"></i>',
-          '<i class="fa fa-angle-right"></i>'
-      ],
-      responsiveClass: true,
-      responsive: {
-        0: {
-          items: 1,
-          margin: 0,
-          nav: true,
-        },
-        1000: {
-          items: 3,
-          margin: 10,
-          nav: true,
-        }
-      }
     });
 
 
-    });
-
-
-    $(".owl-carousel").owlCarousel({
-        items: 3,
+    // Initialise events carousel AFTER adding items
+    $("#events-container").owlCarousel({
         loop: true,
-        margin: 20,
+        margin: 10,
         nav: true,
-        dots: true
+        dots: false,
+        responsive:{
+            0:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
     });
 
 }
 
 
 loadEvents();
+
+async function loadUsers() {
+
+    const response = await fetch("/users.json");
+    const users = await response.json();
+
+    const container = document.getElementById("users-container");
+
+    users.forEach(user => {
+
+        const userHTML = `
+            <div class="item user-modal-trigger"
+     data-img="${user.image}"
+     data-name="${user.name}"
+     data-info="${user.description}"
+     data-contact="${user.contact}"
+     data-website="${user.website}">
+
+                <div class="courses-thumb text-center p-3">
+
+                    <div class="courses-image mb-3">
+                        <img src="${user.image}"
+                             class="img-responsive rounded"
+                             alt="${user.name}">
+                    </div>
+
+                    <h3>${user.name}</h3>
+
+                    <p>${user.summary}</p>
+
+                </div>
+
+            </div>
+        `;
+
+        container.innerHTML += userHTML;
+
+    });
+
+
+    // Initialise carousel after adding items
+    $("#users-container").owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true,
+        dots: true,
+        responsive:{
+            0:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+}
+
+
+loadUsers();

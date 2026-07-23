@@ -50,7 +50,7 @@
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-nav-first">
                          <li><a href="#top" class="smoothScroll">Home</a></li>
-                         <li><a href="#noticeBoard" class="smoothScroll">Notice Board</a></li>
+                         <li><a href="#feature" class="smoothScroll">About</a></li>
                          <li><a href="#courses" class="smoothScroll">Regular Users</a></li>
                          <li><a href="#container" class="smoothScroll">How To Find Us</a></li>
                          <li><a href="#testimonial" class="smoothScroll">News</a></li>
@@ -84,7 +84,7 @@
 </section>
 
 
-     <!-- FEATURE -->
+     <!-- About -->
      <section id="feature">
           <div class="container">
                <div class="row">
@@ -97,7 +97,10 @@
      
 
                     <div class="col-md-4 col-sm-4">
-                                   <div class="feature-thumb text-center p-3">
+                                   <div class="feature-thumb feature-modal-trigger text-center p-3"
+                                        data-title="Hall"
+                                        data-description="The hall has a capacity of up to 120 seated. There is a raised stage with access to two small side rooms. Tables and chairs are available for use."
+                                        data-images='["images/Photos of the property/Min Hall.jpg","images/Photos of the property/VillageHallInside.jpg","images/Photos of the property/VillageHall.jpg","images/Photos of the property/FrontDoor.jpg"]'>
                                          <div class="img-wrapper mb-3">
                                    <img src="images/Photos of the property/Min Hall.jpg" alt="Village Hall" class="img-fluid mb-3 rounded">
                                    </div>
@@ -109,7 +112,10 @@
 
 
                     <div class="col-md-4 col-sm-4">
-                                   <div class="feature-thumb text-center p-3">
+                                   <div class="feature-thumb feature-modal-trigger text-center p-3"
+                                        data-title="Kitchen"
+                                        data-description="The kitchen is available for warming food with cooker, wall mounted hot water dispenser for drinks, microwave and fridge. Crockery and cutlery are available free of charge."
+                                        data-images='["images/Photos of the property/Teacups.JPG","images/Photos of the property/Kitchen.jpg","images/Photos of the property/VillageHallKitchen.jpg"]'>
                                          <div class="img-wrapper mb-3">
                                    <img src="images/Photos of the property/Teacups.JPG" alt="Teacups" class="rounded">
                                    </div>
@@ -119,7 +125,10 @@
                     </div>
 
                     <div class="col-md-4 col-sm-4">
-                                   <div class="feature-thumb text-center p-3">
+                                   <div class="feature-thumb feature-modal-trigger text-center p-3"
+                                        data-title="Parking"
+                                        data-description="The hall has a hard standing car park for up to 10 cars which can also be closed off for use as an outside area."
+                                        data-images='["images/Photos of the property/CarPark.jpg","images/Photos of the property/VillageHallCarPark.jpg","images/Photos of the property/signAndBench.jpg","images/Photos of the property/ChilworthLandscape.jpg"]'>
                                          <div class="img-wrapper mb-3">
                                    <img src="images/Photos of the property/CarPark.jpg" alt="Village Hall" class="img-fluid mb-3 rounded">
                                    </div>
@@ -133,37 +142,12 @@
      </section>
 
 
-     <!-- ABOUT -->
-     <section id="noticeBoard">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-12">
-                         <div class="about-info">
-                              <h2>Village Hall Notice Board</h2>
-                              <h4>A space for our community to connect and get involved. Whether you’re looking for volunteers, offering local services, or hoping to start a new group or class, this is the place to share and discover what’s happening in the village. Contact us below if there's something you'd like to post. </h4>
-                              
-
-                                <!-- Elfsight Job Board | Untitled Job Board -->
-                              <script src="https://elfsightcdn.com/platform.js" async></script>
-                              <div class="elfsight-app-e68f5ab9-ce13-4dec-af56-b0838536e860" data-elfsight-app-lazy></div>
-                                 </div>
-                                </div>
-
-                    
-                         </div>
-                    </div>
-
-               </div>
-          </div>
-     </section>
-
-
-     <!-- Courses -->
+     <!-- Regular Users -->
     <section id="courses">
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-sm-12">
+
         <div class="section-title">
           <h2>Regular Users <small>
                <span> See what activities are already running in Chilworth. </span>
@@ -172,158 +156,17 @@
           </h2>
         </div>
 
-        <div class="owl-carousel owl-theme owl-courses">
-
-          <!-- Ballet -->
-          <div class="item user-modal-trigger" 
-               data-img="images/Ballet.jpg" 
-               data-name="Ballet" 
-               data-info="Private tuition with Anya Grinstead for students of Ballet.">
-            <div class="courses-thumb text-center p-3">
-              <div class="courses-image mb-3">
-                <img src="images/Ballet.jpg" class="img-responsive rounded" alt="Ballet">
-              </div>
-              <h3>Ballet</h3>
-              <p><br>Anya Grinstead 📞 01483 533971</p>
-            </div>
-          </div>
-
-          <!-- Chilworth Brownies -->
-          <div class="item user-modal-trigger" 
-               data-img="images/Brownies.jpg" 
-               data-name="Chilworth Brownies" 
-               data-info="Join the fun with the Brownie Adventure – arts, games, cooking, community projects.">
-            <div class="courses-thumb text-center p-3">
-              <div class="courses-image mb-3">
-                <img src="images/Brownies.jpg" class="img-responsive rounded" alt="Chilworth Brownies">
-              </div>
-              <h3>Chilworth Brownies</h3>
-              <p><br>Cathy Browning 📞 01483 533514</p>
-            </div>
-          </div>
+        <div id="users-container" class="owl-carousel owl-theme">
           
+     </div>
 
-          <!-- Shalford Beavers -->
-          <div class="item user-modal-trigger" 
-               data-img="images/ShalfordBeavers.png" 
-               data-name="Shalford Beavers" 
-               data-info="Beaver Scouts are young people aged between 6 and 8 years old.
-                         Master new skills, have fun, make friends and help other people on your doorstep and beyond. <br><br>
+<!-- End Owl Carousel -->
 
-               We meet: Monday 5.45pm-6.45pm <br>
-               For more information or to join our waiting list please use the link https://shalfordscouts.org.uk/Join/">
-            <div class="courses-thumb text-center p-3">
-              <div class="courses-image mb-3">
-                <img src="images/ShalfordBeavers.png" class="img-responsive rounded" alt="Shalford Beavers">
-              </div>
-              <h3>Shalford Beavers</h3>
-              <p>Monday 5.45pm-6.45pm
-               <br>🌐Shalfordscouts.org.uk</p>
-            </div>
-          </div>
-
-          <!-- Shalford Cubs -->
-          <div class="item user-modal-trigger" 
-               data-img="images/Shalfordcubs.jpg" 
-               data-name="Shalford Cubs" 
-               data-info="Cub Scouts are young people aged between 8 and 10 and half.
-                         Go on adventures, learn new skills, gain skills for life and help others! <br><br>
-
-               We meet: Thursday 6.45pm-8:00pm <br>
-               For more information or to join our waiting list please use the link https://shalfordscouts.org.uk/Join/">
-            <div class="courses-thumb text-center p-3">
-              <div class="courses-image mb-3">
-                <img src="images/Shalfordcubs.jpg" class="img-responsive rounded" alt="Shalford Cubs">
-              </div>
-              <h3>Shalford Cubs</h3>
-              <p>Thursday 6.45pm-8:00pm
-               <br>🌐 shalfordscouts.org.uk   
-              </p>
-            </div>
-          </div>
-
-          <!-- Community Cinema -->
-          <div class="item user-modal-trigger" 
-               data-img="images/communitycinema.png" 
-               data-name="Community Cinema" 
-               data-info="Different film each month, friendly relaxed setting, drinks and ice cream available, £5 on the door.">
-            <div class="courses-thumb text-center p-3">
-              <div class="courses-image mb-3">
-                <img src="images/communitycinema.png" class="img-responsive rounded" alt="Community Cinema">
-              </div>
-
-              <h3><br>Community Cinema</h3>
-              <p>✉️ cccinema17@outlook.com</p>
-            </div>
-          </div>
-
-          <!-- Pilates -->
-          <div class="item user-modal-trigger" 
-               data-img="images/Pilates4Everyone.jpg" 
-               data-name="Pilates 4 Everyone" 
-               data-info="Join me on a Monday morning:<br>
-                                        9.15-10.15am Mixed Ability Pilates || 
-                                        10.30-11.30am Pilates4mamma&baby<br><br>
-                                        You don’t need to be flexible, fit or experienced to come to Pilates 🤍<br>
-                                        My classes focus on moving well, building strength gradually and supporting your body at your own pace. They’re friendly, inclusive and suitable for all ages and abilities, with options given throughout.<br><br>
-                                        If you’ve been thinking about trying Pilates locally, I’d love to welcome you to one of my village hall classes 🌿<br><br>
-                                        To know more visit:
-                                        www.pilates4everyone.co.uk<br>
-                                        To book please email me at: emma@pilates4everyone.co.uk">
-                                                  <div class="courses-thumb text-center p-3">
-              <div class="courses-image mb-3">
-                <img src="images/Pilates4Everyone.jpg" class="img-responsive rounded" alt="pilates4everyone">
-              </div>
-              <h3>Pilates 4 Everyone</h3>
-              <p>Monday's:
-                    ⭐️ 9:15-10:15am & 10:30-11:30am
-                    📧 emma@pilates4everyone.co.uk</p>
-            </div>
-          </div>
-
-          <!-- Yoga with Emily -->
-          <div class="item user-modal-trigger" 
-               data-img="images/Yoga with Emily/YogawithEmily.jpg" 
-               data-name="Yoga with Emily" 
-               data-info="Yoga every Monday during school time: 7pm - 8pm.
-                         Monday Evening Yoga with Emily. <br><br>
-                         This is a yoga class where you will be welcomed as you are - with no expectations or judgements. 
-                         We move to find space, ease and stability in the body and to still the mind by connecting our movement to our breath. We always finish with a nurturing guided relaxation.
-                         Classes are £10 and work on a drop in basis (no need to book).<br><br>
-                         If you'd like to find out more, please contact Emily: emswilkin@hotmail.com">
-                                                  <div class="courses-thumb text-center p-3">
-              <div class="courses-image mb-3">
-                <img src="images/Yoga with Emily/YogawithEmily.jpg" class="img-responsive rounded" alt="Yoga with Emily">
-              </div>
-              <h3>Yoga with Emily</h3>
-              <p>Monday's during school time 7pm-8pm:
-                    📧 emswilkin@hotmail.com</p>
-            </div>
-          </div>
-
-          <!-- Boogie Pumps -->
-          <div class="item user-modal-trigger" 
-               data-img="images/BoogiePumps.jpg" 
-               data-name="Boogie Pumps" 
-               data-info="At Boogie Pumps, we believe that dance should be both fun and accessible, which is why our classes are structured to provide a positive, supportive, and enjoyable experience. Our expert teachers ensure that every child feels welcome, encouraged, and excited to learn. From toddlers to teens, we offer classes that focus on building confidence, developing skills, and most importantly, having fun while dancing.<br><br>
-
-               https://boogiepumps.co.uk/timetable/
-               ">
-            <div class="courses-thumb text-center p-3">
-              <div class="courses-image mb-3">
-                <img src="images/BoogiePumps.jpg" class="img-responsive rounded" alt="Boogie Pumps">
-              </div>
-              <h3>Boogie Pumps</h3>
-              <p>Hannah Ayres 📞 07769 645741 | ✉️ hannah@boogiepumps.co.uk</p>
-            </div>
-          </div>
-
-        </div> <!-- End Owl Carousel -->
       </div>
     </div>
   </div>
 </section>
-     <!-- TEAM -->
+     <!-- How to Find Us -->
      <section id="container">
           <div class="container">
                <div class="row">
@@ -374,7 +217,7 @@
                     <h2>What's on in Chilworth? <small>See all the upcoming local events</small></h2>
                 </div>
 
-                <div id="events-container" class="owl-carousel owl-theme owl-courses">
+                <div id="events-container" class="owl-carousel owl-theme">
 
                </div>         
 
@@ -497,8 +340,8 @@
      </footer>
 
 
-     <!-- SCRIPTS -->
-      <!-- MODAL -->
+    
+      <!-- USER MODAL -->
 <div id="userModal" class="custom-modal">
   <div class="custom-modal-content">
     <span class="custom-close">&times;</span>
@@ -507,6 +350,18 @@
     <p id="modalText"></p>
   </div>
 </div>
+
+      <!-- FEATURE MODAL -->
+<div id="featureModal" class="custom-modal">
+  <div class="custom-modal-content feature-modal-content">
+    <span class="custom-close feature-close">&times;</span>
+    <div id="featureThumbnails" class="feature-thumbnails"></div>
+    <img id="featureModalImg" src="" alt="">
+    <h2 id="featureModalTitle"></h2>
+    <p id="featureModalText"></p>
+  </div>
+</div>
+ <!-- SCRIPTS -->
      <script src="js/jquery.js"></script>
      <script src="js/bootstrap.min.js"></script>
      <script src="js/owl.carousel.min.js"></script>
