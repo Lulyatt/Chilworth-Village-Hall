@@ -4,7 +4,7 @@
 
     // PRE LOADER
     $(window).load(function(){
-      $('.preloader').fadeOut(1000); // set duration in brackets    
+      $('.preloader').fadeOut(1000);
     });
 
 
@@ -21,19 +21,6 @@
           }
     });
 
-
-    // HOME SLIDER & COURSES & CLIENTS
-    $('.home-slider').owlCarousel({
-      animateOut: 'fadeOut',
-      items:1,
-      loop:true,
-      dots:false,
-      autoplayHoverPause: true,
-      autoplay: true,
-      smartSpeed: 1000,
-    })
-
-    
     // SMOOTHSCROLL
     $(function() {
       $('.custom-navbar a, #home a').on('click', function(event) {
@@ -43,7 +30,7 @@
           }, 1000);
             event.preventDefault();
       });
-    });  
+    });
 
 })(jQuery);
 
@@ -86,57 +73,57 @@ $("#modalText").html(modalContent);
   $(document).keydown(function (e) {
     if (e.key === "Escape") {
       $("#userModal").removeClass("active");
-      $("#featureModal").removeClass("active");
+      $("#facilityModal").removeClass("active");
       $("body").removeClass("modal-open");
     }
   });
 
-  function closeFeatureModal() {
-    $("#featureModal").removeClass("active");
+  function closefacilityModal() {
+    $("#facilityModal").removeClass("active");
     $("body").removeClass("modal-open");
   }
 
-  function setFeatureMainImage(src, index) {
-    $("#featureModalImg").attr("src", src);
-    $("#featureThumbnails .feature-thumbnail").removeClass("active");
-    $("#featureThumbnails .feature-thumbnail").eq(index).addClass("active");
+  function setfacilityMainImage(src, index) {
+    $("#facilityModalImg").attr("src", src);
+    $("#facilityThumbnails .facility-thumbnail").removeClass("active");
+    $("#facilityThumbnails .facility-thumbnail").eq(index).addClass("active");
   }
 
-  $(document).on("click", ".feature-modal-trigger", function () {
+  $(document).on("click", ".facility-modal-trigger", function () {
     const images = JSON.parse($(this).attr("data-images"));
     const title = $(this).data("title");
     const description = $(this).data("description");
 
-    $("#featureModalTitle").text(title);
-    $("#featureModalText").text(description);
+    $("#facilityModalTitle").text(title);
+    $("#facilityModalText").html(description);
 
-    const $thumbnails = $("#featureThumbnails").empty();
+    const $thumbnails = $("#facilityThumbnails").empty();
     images.forEach(function (src, index) {
       $("<img>", {
         src: src,
         alt: title + " photo " + (index + 1),
-        class: "feature-thumbnail" + (index === 0 ? " active" : ""),
+        class: "facility-thumbnail" + (index === 0 ? " active" : ""),
         "data-index": index
       }).appendTo($thumbnails);
     });
 
-    setFeatureMainImage(images[0], 0);
+    setfacilityMainImage(images[0], 0);
 
-    $("#featureModal").addClass("active");
+    $("#facilityModal").addClass("active");
     $("body").addClass("modal-open");
   });
 
-  $(document).on("click", ".feature-thumbnail", function (e) {
+  $(document).on("click", ".facility-thumbnail", function (e) {
     e.stopPropagation();
     const index = $(this).data("index");
-    setFeatureMainImage($(this).attr("src"), index);
+    setfacilityMainImage($(this).attr("src"), index);
   });
 
-  $(".feature-close").click(closeFeatureModal);
+  $(".facility-close").click(closefacilityModal);
 
-  $("#featureModal").click(function (e) {
+  $("#facilityModal").click(function (e) {
     if (e.target === this) {
-      closeFeatureModal();
+      closefacilityModal();
     }
   });
 
@@ -153,7 +140,7 @@ async function loadEvents() {
 
         const eventHTML = `
             <div class="item">
-                <div class="courses-thumb text-center p-3">
+                <div class="carousel-card text-center p-3">
 
                     <div class="tst-image mb-3">
                         <img src="${event.image}" 
@@ -190,6 +177,9 @@ async function loadEvents() {
         margin: 10,
         nav: true,
         dots: false,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
         responsive:{
             0:{
                 items:1
@@ -222,9 +212,9 @@ async function loadUsers() {
      data-contact="${user.contact}"
      data-website="${user.website}">
 
-                <div class="courses-thumb text-center p-3">
+                <div class="carousel-card text-center p-3">
 
-                    <div class="courses-image mb-3">
+                    <div class="user-card-image mb-3">
                         <img src="${user.image}"
                              class="img-responsive rounded"
                              alt="${user.name}">
@@ -250,6 +240,9 @@ async function loadUsers() {
         margin: 20,
         nav: true,
         dots: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
         responsive:{
             0:{
                 items:1
