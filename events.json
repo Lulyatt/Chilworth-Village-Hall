@@ -6,5 +6,21 @@
     "description": "Test",
     "image": "/images/uploads/001.png",
     "link": "www.google.co.uk"
+  },
+  {
+    "title": "Jen’s Sunset Walk",
+    "date": "11 September 2026",
+    "location": "Chilworth",
+    "description": "A 6 mile scenic evening loop starting at the Chilworth Gunpowder Mills and Vineyard’s Alpacas with a stunning sunset spot at St Martha’s Hill.",
+    "link": "https://www.backontrack.live/events/10km-chantries-chilworth-gunpowder-st-marthas-circular/",
+    "image": "/images/uploads/jens-walk.png"
+  },
+  {
+    "title": "Chilworth Gunpowder Mills 400th Anniversary Walk",
+    "date": "5 September 2026",
+    "description": "A free guided walk celebrates 400 years of the historic gunpowder mills",
+    "location": "Gunpowder mills",
+    "image": "/images/uploads/gunpowder-mills-anniversary-walk.png",
+    "link": "https://www.instagram.com/p/Dcdgj2xIMJ7/"
   }
 ]

@@ -15,7 +15,7 @@ collections:
     folder: "content/events"
 
     create: true
-    slug: "{{slug}}"
+    slug: "{{name}}"
 
     extension: "json"
     format: "json"
@@ -55,7 +55,7 @@ collections:
     folder: "content/users"
 
     create: true
-    slug: "{{slug}}"
+    slug: "{{name}}"
 
     extension: "json"
     format: "json"
