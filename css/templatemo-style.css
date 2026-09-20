@@ -25,7 +25,7 @@ h1 {
 }
 
 h2 {
-  color: #353535;
+  color: #252525;
   font-size: 2em;
   padding-bottom: 10px;
 }
@@ -37,22 +37,24 @@ h3 {
 
 h3,
 h3 a {
-  color: #454545;
+  color: #252525;
 }
 
 p {
-  color: #757575;
+  color: #1f1f1f;
   font-size: 14px;
   font-weight: normal;
   line-height: 24px;
 }
 
 h2 small {
+  color: #313131;
   display: block;
   line-height: 1.4;
 }
 
 h2 small span {
+  color: #313131;
   display: block;
 }
 
@@ -346,7 +348,7 @@ section {
 #regular-users .owl-theme .owl-nav [class*=owl-] {
   border-radius: 2px;
   font-size: 16px;
-  width: 30px;
+  width: 40px;
   height: 30px;
   line-height: 30px;
   text-align: center;

@@ -55,7 +55,7 @@ collections:
     folder: "content/users"
 
     create: true
-    slug: "{{name}}"
+    slug: "{{title}}"
 
     extension: "json"
     format: "json"
