@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { globSync } = require("glob");
 
-const files = globSync("content/events/*.json");
+const files = globSync("content/events/*.json", { dot: true });
 
 const events = files.map(file => {
     const data = fs.readFileSync(file, "utf8");

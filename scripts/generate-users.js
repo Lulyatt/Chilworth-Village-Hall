@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { globSync } = require("glob");
 
-const files = globSync("content/users/*.json");
+const files = globSync("content/users/*.json", { dot: true });
 
 const users = files.map(file => {
     const data = fs.readFileSync(file, "utf8");
