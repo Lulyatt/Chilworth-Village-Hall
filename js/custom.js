@@ -36,7 +36,7 @@
 
 $(document).ready(function () {
 
- $(document).on("click", ".user-modal-trigger", function () {
+ $(document).on("click", ".user-modal-trigger, .event-modal-trigger", function () {
     $("#modalImg").attr("src", $(this).data("img"));
     $("#modalTitle").text($(this).data("name"));
     let modalContent = $(this).data("info");
@@ -46,7 +46,8 @@ if ($(this).data("contact")) {
 }
 
 if ($(this).data("website")) {
-    modalContent += `<br><br>🌐 <a href="${$(this).data("website")}" target="_blank">Visit Website</a>`;
+    const linkLabel = $(this).hasClass("event-modal-trigger") ? "Find Out More" : "Visit Website";
+    modalContent += `<br><br>🌐 <a href="${$(this).data("website")}" target="_blank" rel="noopener noreferrer">${linkLabel}</a>`;
 }
 
 $("#modalText").html(modalContent);
@@ -138,8 +139,14 @@ async function loadEvents() {
 
     events.forEach(event => {
 
+        const eventInfo = `${event.location} • ${event.date}<br><br>${event.description}`;
         const eventHTML = `
-            <div class="item">
+            <div class="item event-modal-trigger"
+     data-img="${event.image}"
+     data-name="${event.title}"
+     data-info="${eventInfo}"
+     data-website="${event.link || ""}">
+
                 <div class="carousel-card text-center p-3">
 
                     <div class="tst-image mb-3">
@@ -156,7 +163,7 @@ async function loadEvents() {
                         ${event.description}
                         ${event.link ? 
                         `<br>
-                        <a href="${event.link}" target="_blank">
+                        <a href="${event.link}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
                             Find Out More
                         </a>` 
                         : ""}
@@ -170,22 +177,27 @@ async function loadEvents() {
 
     });
 
+    const eventCount = events.length;
+    if (eventCount === 0) {
+        return;
+    }
 
-    // Initialise events carousel AFTER adding items
+    const maxEventItems = 3;
     $("#events-container").owlCarousel({
-        loop: true,
+        loop: eventCount > maxEventItems,
+        center: eventCount < maxEventItems,
         margin: 10,
-        nav: true,
+        nav: eventCount > 1,
         dots: false,
-        autoplay: true,
+        autoplay: eventCount > 1,
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
-        responsive:{
-            0:{
-                items:1
+        responsive: {
+            0: {
+                items: 1
             },
-            1000:{
-                items:3
+            1000: {
+                items: maxEventItems
             }
         }
     });
@@ -233,25 +245,30 @@ async function loadUsers() {
 
     });
 
+    const userCount = users.length;
+    if (userCount === 0) {
+        return;
+    }
 
-    // Initialise carousel after adding items
+    const maxUserItems = 3;
     $("#users-container").owlCarousel({
-        loop: true,
+        loop: userCount > maxUserItems,
+        center: userCount < maxUserItems,
         margin: 20,
-        nav: true,
-        dots: true,
-        autoplay: true,
+        nav: userCount > 1,
+        dots: userCount > 1,
+        autoplay: userCount > 1,
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
-        responsive:{
-            0:{
-                items:1
+        responsive: {
+            0: {
+                items: 1
             },
-            768:{
-                items:2
+            768: {
+                items: 2
             },
-            1000:{
-                items:3
+            1000: {
+                items: maxUserItems
             }
         }
     });
